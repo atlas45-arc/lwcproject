@@ -3,7 +3,7 @@ public with sharing class WarehouseCalloutService implements Queueable {
     
 
     
-     public static void execute (QueueableContext context){
+    public static void execute (QueueableContext context){
         runWarehouseEquipmentSync();
     }
 
@@ -24,7 +24,7 @@ public with sharing class WarehouseCalloutService implements Queueable {
                 Product2 mapEqui = new Product2();
                 mapEqui.Name = (String) mapJson.get('name');
                // mapEqui.Replacement_Part__c = (Boolean) mapJson.get('replacement');
-               mapEqui.Replacement_Part__c = true;
+                mapEqui.Replacement_Part__c = true;
                 mapEqui.Maintenance_Cycle__c = (Integer) mapJson.get('maintenanceperiod');
                 mapEqui.Lifespan_Months__c = (Integer) mapJson.get('lifespan');
                 mapEqui.Cost__c = (Integer) mapJson.get('cost');
@@ -39,7 +39,5 @@ public with sharing class WarehouseCalloutService implements Queueable {
             
         }
     }
-    
-   
     
 }
